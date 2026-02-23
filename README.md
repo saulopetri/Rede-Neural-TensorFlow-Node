@@ -15,14 +15,14 @@ Prever a probabilidade de o usuário pertencer a um dos três perfis de plano.
 ## Arquitetura do Modelo
 
 1. Camada Oculta: 
-○ Input shape: 07 (um para cada atributo). 
-○ 80 neurônios: escolhidos empiricamente para aumentar a 
+- Input shape: 07 (um para cada atributo). 
+- 80 neurônios: escolhidos empiricamente para aumentar a 
 capacidade de aprendizado mesmo com poucos dados. 
-○ Função de ativação: ReLU (Rectified Linear Unit), que permite que 
+- Função de ativação: ReLU (Rectified Linear Unit), que permite que 
 apenas valores positivos passem adiante. 
 2. Camada de Saída: 
-○ 3 neurônios: um para cada categoria. 
-○ Função de ativação: Softmax, que transforma os valores de saída 
+- 3 neurônios: um para cada categoria. 
+- Função de ativação: Softmax, que transforma os valores de saída 
 em probabilidades normalizadas.
 
 ## Como Executar
