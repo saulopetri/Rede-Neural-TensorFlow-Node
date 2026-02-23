@@ -10,20 +10,20 @@ O modelo categoriza os usuários em três tipos de planos (Premium, Medium e Bas
 
 ## Objetivo
 
-O sistema recebe 07 variáveis de entrada (features) que descrevem o perfil de um usuário:
-
-- **Preferências:** Cor favorita.
-- **Demográficas:** Idade e Localização.
-
-O objetivo é prever a probabilidade de o usuário pertencer a um dos três perfis de plano.
+Prever a probabilidade de o usuário pertencer a um dos três perfis de plano.
 
 ## Arquitetura do Modelo
 
-O modelo foi construído utilizando a API Sequencial do TensorFlow:
-
-1.  **Input Layer:** 07 dimensões.
-2.  **Hidden Layer:** 100 neurônios com ativação **ReLU** (para capturar padrões não-lineares).
-3.  **Output Layer:** 03 neurônios com ativação **Softmax**, entregando uma distribuição probabilística entre as categorias.
+1. Camada Oculta: 
+○ Input shape: 07 (um para cada atributo). 
+○ 80 neurônios: escolhidos empiricamente para aumentar a 
+capacidade de aprendizado mesmo com poucos dados. 
+○ Função de ativação: ReLU (Rectified Linear Unit), que permite que 
+apenas valores positivos passem adiante. 
+2. Camada de Saída: 
+○ 3 neurônios: um para cada categoria. 
+○ Função de ativação: Softmax, que transforma os valores de saída 
+em probabilidades normalizadas.
 
 ## Como Executar
 
