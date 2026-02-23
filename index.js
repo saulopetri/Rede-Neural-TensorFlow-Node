@@ -13,9 +13,6 @@ import tf from '@tensorflow/tfjs-node';
 // tensorPessoasNormalizado corresponde ao dataset de entrada do modelo.
 const tensorPessoasNormalizado = pessoas.map(pessoa => normalizaPessoa(pessoa));
 
-console.log("Dados de entrada normalizados:");
-console.log(tensorPessoasNormalizado);
-
 // Labels das categorias a serem previstas (one-hot encoded)
 // [premium, medium, basic]
 const categorias = ["premium", "medium", "basic"]; // Ordem dos labels
@@ -35,7 +32,13 @@ inputXs.print();
 outputYs.print();
 
 // quanto mais dados de treino, melhor o modelo aprende, mas mais tempo leva pra treinar
-const model = await trainModel(inputXs, outputYs); 
+const model_ = await trainModel(inputXs, outputYs); 
+
+// Salvando os pesos do modelo para uso futuro
+await model_.save('file://./modelo-tfjs');
+
+// Carregando o modelo treinado
+const model = await tf.loadLayersModel('file://./modelo-tfjs/model.json');
 
 // Exemplo de novas pessoas para previsão
 const pessoasPrevisao = [
